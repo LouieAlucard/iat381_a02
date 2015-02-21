@@ -16,9 +16,28 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', function ($scope, $do
 	    ctx.fillStyle = grd;
 	    ctx.fill();
 
-	    ctx.beginPath();
-		ctx.arc(canvas.width/2,canvas.height*0.3,100,0,2*Math.PI);
-		ctx.stroke();
+	    //large task circle
+	    ctx.translate(canvas.width/2,canvas.height*0.4); 
+
+	    var disR = 200;
+	    var angle = 0;
+	    var coords = [];
+	    while (angle < 360) {
+	    	coords.push([disR*Math.cos(Math.PI*(angle/180)), disR*Math.sin(Math.PI*(angle/180))]);
+	    	angle = angle + 24;
+	    }
+
+		for(var i = 0; i < coords.length; i++){
+		    ctx.beginPath();
+		    ctx.arc(coords[i][0], coords[i][1], 20, 0, Math.PI * 2, true);
+		    ctx.fill();
+		}
+
+		
+
+
+
+		
     }
 
     draw();
