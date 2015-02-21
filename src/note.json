@@ -1,108 +1,16 @@
-{
-	"Mixed Paper":[
-		{
-        "imageUrl":"img/newspaper.png",
-        "name":"Newspaper",
-		"description":"Inculding Inserts, Flyers, and Ads."},
-		{
-        "imageUrl":"img/cardboard.png",
-		"name":"CardBoard Boxes",
-		"description":"Cereal, shoe, tissue, pizza, frozen entree, desserts, and detergent boxes."},
-        {
-        "imageUrl":"img/roll.png",
-		"name":"Rolls",
-		"description":"Cardboard rolls for paper towel and tissue."},
-        {
-        "imageUrl":"img/eggcarton.png",
-		"name":"Tray",
-		"description":"Carrier trays for bulk bottled water, soft drinks, cans, food, egg cartons."},
-        {
-        "imageUrl":"img/paperbag.png",
-		"name":"Paper Bags",
-		"description":"Remeber don't left anything inside."},
-        {
-        "imageUrl":"img/paperenvelop.png",
-		"name":"Paper & Envelop",
-		"description":"Computer, copier and printer paper; Loose leaf paper; Printed paper; Shredded paper; Writing paper; Notepads; Envelopes, plain or with windows."},
-        {
-        "imageUrl":"img/paperwrap.png",
-		"name":"Paper Wrap",
-		"description":"Gift wrap; Greeting Cards; Flower wrap, Dry cleaning wrap."},
-        {
-        "imageUrl":"img/book.png",
-		"name":"Magazines & Books",
-		"description":"Both soft and hard cover are Okay."}
-	],
-	
-	"Green Bin":[
-		{
-        "imageUrl":"img/shell.png",
-        "name":"Shell",
-		"description":"Seafood shell and egg shell."},
-		{
-        "imageUrl":"img/food.png",
-		"name":"Food Scraps",
-		"description":"All food."},
-        {
-        "imageUrl":"img/teabag.png",
-		"name":"Teabag",
-		"description":"Teabags, coffee grounds, and filters"},
-        {
-        "imageUrl":"img/tissue.png",
-		"name":"Tissue / Napkin",
-		"description":"No blood or fecal matter."},
-        {
-        "imageUrl":"img/foodpaperbag.png",
-		"name":"Paper Bags",
-		"description":"For lining kitchen containers, such as Bag-to-Earth or wrapping food scraps or lining kitchen containers"},
-        {
-        "imageUrl":"img/dishes.png",
-		"name":"Used Paper Dishes",
-		"description":"No plastic coating"},
-        {
-        "imageUrl":"img/plant.png",
-		"name":"Plants",
-		"description":"Leaves and grass clippings, Weeds, soils, and flowers"},
-        {
-        "imageUrl":"img/branch.png",
-		"name":"Short Branches",
-		"description":"Prunings under 10 cm thick and 50 cm long."}
-	],
-	
-	"Recyclable Container":[
-		{
-        "imageUrl":"img/tray.png",
-        "name":"Food Package",
-		"description":"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
-        {
-        "imageUrl":"img/bottlejar.png",
-        "name":"Glass Bottles",
-		"description":"Clear or coloured jar, non-deposit."},
-        {
-        "imageUrl":"img/aerosol.png",
-        "name":"Aerosol Cans",
-		"description":"Air fresheners; Shaving cream; Deodorant; Hairspray"},
-        {
-        "imageUrl":"img/can.png",
-        "name":"Food Cans & lids",
-		"description":"Tins, steel and aluminum"},
-        {
-        "imageUrl":"img/milk.png",
-        "name":"Milk Cartons",
-		"description":"May have plastic caps on. Since super market don’t accept any milk container"},
-        {
-        "imageUrl":"img/tetrapaks.png",
-        "name":"Tetra Paks",
-		"description":"May have plastic caps on."},
-		{
-        "imageUrl":"img/bottle.png",
-		"name":"Plastic Bottle",
-		"description":"With screw caps, pull tops, spray nozzles, and pumps."},
-        {
-        "imageUrl":"img/cup.png",
-		"name":"Cups & Lids",
-		"description":"Separate lids."}
-	]
-}
+[
+	{
+    "iconUrl":"./img/image.png",
+    "detailUrl":"Food Package",
+	"content":"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+    {
+    "iconUrl":"./img/image.png",
+    "detailUrl":"Food Package",
+	"content":"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+	{
+    "iconUrl":"./img/image.png",
+    "detailUrl":"Food Package",
+	"content":"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."}
+]
 
 		

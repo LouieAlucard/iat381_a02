@@ -1,46 +1,42 @@
-todoApp.controller('taskListCtrl', ['$scope', '$document', function ($scope, $document) {
+todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($scope, $document, $http) {
 
-    var canvas = $document.find('canvas')[0];
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    var ctx = canvas.getContext('2d');
-
-    function draw(){
-
-    	//background - linear gradient
-        ctx.rect(0, 0, canvas.width, canvas.height);
-	    var grd = ctx.createLinearGradient(0, 0, 0, canvas.height);
-	    grd.addColorStop(0, '#487690');   
-		grd.addColorStop(0.3, '#1d909e');   
-	    grd.addColorStop(1, '#00bcb1');
-	    ctx.fillStyle = grd;
-	    ctx.fill();
-
-	    //large task circle
-	    ctx.translate(canvas.width/2,canvas.height*0.4); 
-
-	    var disR = 200;
-	    var angle = 0;
-	    var coords = [];
-	    while (angle < 360) {
-	    	coords.push([disR*Math.cos(Math.PI*(angle/180)), disR*Math.sin(Math.PI*(angle/180))]);
-	    	angle = angle + 24;
-	    }
-
-		for(var i = 0; i < coords.length; i++){
-		    ctx.beginPath();
-		    ctx.arc(coords[i][0], coords[i][1], 20, 0, Math.PI * 2, true);
-		    ctx.fill();
-		}
-
-		
+	$http.get('./src/note.json').success(function(data) {
+		$scope.taskData = data;
+	});
 
 
 
-		
-    }
+	$scope.cWidth = window.innerWidth;
+	$scope.cHeight= window.innerHeight;
 
-    draw();
+
+	$scope.centerX = $scope.cWidth / 2;
+	$scope.centerY = $scope.cHeight * 0.4;
+
+	$scope.centerR = $scope.cWidth * 0.25;
+	$scope.taskDisR = $scope.centerR * 1.5;
+	$scope.taskSize = $scope.centerR * 0.5;
+
+	var angle = 0;
+    var taskCoords = [];
+
+    while (angle < 360) {
+    	taskCoords.push([
+    		$scope.centerX+$scope.taskDisR*Math.cos(Math.PI*(angle/180))-$scope.taskSize/2, 
+    		$scope.centerY+$scope.taskDisR*Math.sin(Math.PI*(angle/180))-$scope.taskSize/2
+    	]);
+    	angle = angle + 24;
+
+	}
+
+	$scope.taskCoords = taskCoords;
+
+	
+	
+
+	
+
+
 }]);
 
 
