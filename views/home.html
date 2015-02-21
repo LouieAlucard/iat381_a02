@@ -13,7 +13,7 @@
 	
 	<g ng-repeat="(key, value) in taskData">
   		<a xlink:href="http://www.google.co.jp/">
-  			<image xlink:href="./img/image.png" ng-x="{{taskCoords[key][0]}}" ng-y="{{taskCoords[key][1]}}"  ng-width="{{taskSize}}" ng-height="{{taskSize}}"/ alt="{{task.iconUrl}}">
+  			<image xlink:href="{{value.iconUrl}}" ng-x="{{taskCoords[key][0]}}" ng-y="{{taskCoords[key][1]}}"  ng-width="{{taskSize}}" ng-height="{{taskSize}}"/ alt="{{task.iconUrl}}">
   		</a>		
   	</g>
 </svg>
