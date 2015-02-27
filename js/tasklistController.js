@@ -1,9 +1,39 @@
 todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($scope, $document, $http) {
 
-	$http.get('./src/note.json').success(function(data) {
-		$scope.taskData = data;
-	});
+	// $http.get('./src/note.json').success(function(data) {
+	// 	$scope.taskData = data;
+	// });
 
+	$scope.taskData = [
+		{
+	    "iconUrl": 		"./img/icon/1.png",
+	    "iconClass": 	"taskIcon",
+	    "detailUrl": 	"Food Package",
+		"content": 		"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+	    {
+	    "iconUrl": 		"./img/icon/3.png",
+	    "iconClass": 	"taskIcon",
+	    "detailUrl		":"Food Package",
+		"content": 		"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+		{
+	    "iconUrl": 		"./img/icon/7.png",
+	    "iconClass": 	"taskIcon",
+	    "detailUrlas": 	"Food Package",
+		"content": 		"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+	    {
+	    "iconUrl": 		"./img/icon/2.png",
+	    "iconClass": 	"taskIcon",
+	    "detailUrl": 	"Food Package",
+	    "content": 		"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."},
+	    {
+	    "iconUrl": 		"./img/icon/add.png",
+	    "iconClass": 	"addIcon",
+	    "detailUrl": 	"Food Package",
+	    "content": 		"Foam meat trays; Foam egg cartons; Foam clamshells for takeout food; Foam cups; Foam bowls."}
+
+	];
+
+	$scope.taskNumber = $scope.taskData.length;
 
 
 	$scope.cWidth = window.innerWidth;
@@ -12,6 +42,12 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 
 	$scope.centerX = $scope.cWidth / 2;
 	$scope.centerY = $scope.cHeight * 0.4;
+	$scope.centerYAlt = function(change) {
+		var y = $scope.centerY;
+		y = y + change;
+		return y;
+	}
+
 
 	$scope.centerR = $scope.cWidth * 0.25;
 	$scope.taskDisR = $scope.centerR * 1.5;
@@ -32,7 +68,7 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 	$scope.taskCoords = taskCoords;
 
 	
-	
+
 
 	
 
