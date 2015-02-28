@@ -7,7 +7,7 @@ body {
 }
 
 
-.task-list {
+svg.task-list {
     background: rgba(72,118,144,1);
     background: -moz-linear-gradient(top, rgba(72,118,144,1) 0%, rgba(29,144,158,1) 41%, rgba(0,188,177,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(72,118,144,1)), color-stop(41%, rgba(29,144,158,1)), color-stop(100%, rgba(0,188,177,1)));
@@ -17,5 +17,27 @@ body {
     background: linear-gradient(to bottom, rgba(72,118,144,1) 0%, rgba(29,144,158,1) 41%, rgba(0,188,177,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487690', endColorstr='#00bcb1', GradientType=0 );
 }
+
+
+.feature {
+    opacity: 0;
+}
+
+.feature-droppable {
+    opacity: 1;
+}
+
+
+
+.detail-group {
+    display: none;
+}
+
+
+.detail-title {
+    font-size: 16pt;
+}
+
+
 
 

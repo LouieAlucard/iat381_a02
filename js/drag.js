@@ -1,5 +1,8 @@
 var taskStartX;
 var taskStartY;
+var taskMove = false;
+
+
 
 
 // draggable task icon
@@ -14,11 +17,8 @@ interact('.taskIcon')
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
     },
 
-
     // call this function on every dragmove event
     onmove: function (event) {
-      taskStartX = event.target.x;
-      taskStartY = event.target.y;
 
       var target = event.target,
           // keep the dragged position in the data-x/data-y attributes
@@ -34,15 +34,24 @@ interact('.taskIcon')
       target.setAttribute('data-x', x);
       target.setAttribute('data-y', y);
     },
+
     // call this function on every dragend event
     onend: function (event) {
+      var target = event.target,
+          // keep the dragged position in the data-x/data-y attributes
+          x = 0;
+          y = 0,
+
+      // translate the element
+      target.style.webkitTransform =
+      target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+
+      // update the posiion attributes
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
     }
-
-    
-     
-
   });
-
 
 
 
@@ -67,21 +76,6 @@ interact('.taskBin').dropzone({
     var draggableElement = event.relatedTarget,
         dropzoneElement = event.target;
 
-
-      var  dropCenter = {
-          x: 60,
-          y: 30
-        };
-
-        interact(draggableElement).draggable({
-         snap: {
-    targets: [
-      { x: 20, y: 300, range: 50 },
-      { x: 10, y: 200 /* use default range below */},
-    ],
-    range: 300 // for targets that don't specify a range
-    }
-        });
     // feedback the possibility of a drop
     dropzoneElement.classList.add('drop-target');
   },
@@ -103,5 +97,52 @@ interact('.taskBin').dropzone({
     // remove active dropzone feedback
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
+  }
+});
+
+
+interact('.feature').dropzone({
+  overlap: 0.30,
+
+  // when start dragging
+  ondropactivate: function (event) {
+    var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
+
+    dropzoneElement.classList.add('feature-droppable');
+  },
+
+  // when hold over dropzone
+  ondragenter: function (event) {
+  },
+
+  // when hold but leave dropzone
+  ondragleave: function (event) {
+  },
+
+  // when drop into dropzon
+  ondrop: function (event) {
+    var svgGroup = document.getElementsByClassName("detail-group")[0];
+    svgGroup.style.display = "block";
+    var title = document.getElementsByClassName("detail-title")[0];
+    title.innerHTML = "";
+    var content = document.getElementsByClassName("detail-content")[0];
+    content.innerHTML = "";
+    
+    var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
+
+    var text = draggableElement.getAttribute("alt");
+
+    var text = text.split("/n");
+
+    title.innerHTML = text[0];
+    content.innerHTML = text[1];
+  },
+  // when drop
+  ondropdeactivate: function (event) {
+    var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
+    dropzoneElement.classList.remove('feature-droppable');
   }
 });

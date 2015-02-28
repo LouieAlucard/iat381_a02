@@ -9,11 +9,49 @@ todoApp.config(['$routeProvider',
 				templateUrl: 'views/home.html',
 				controller: 'taskListCtrl'
 			}).
+            when('/edit', {
+                templateUrl: 'views/edit.html',
+                controller: 'taskEditCtrl'
+            }).
+            when('/new', {
+                templateUrl: 'views/new.html',
+                controller: 'taskEditCtrl'
+            }).
 			otherwise({
 				redirectTo: '/main'
 			});
 	}
 ]);
+
+
+todoApp.service('sharedProperties', function () {
+    var iconEdit;
+    var titleEdit;
+    var contentEdit;
+
+    return {
+        geticonEdit: function () {
+            return iconEdit;
+        },
+        seticonEdit: function(value) {
+            iconEdit = value;
+        },
+
+        gettitleEdit: function () {
+            return titleEdit;
+        },
+        settitleEdit: function(value) {
+            titleEdit = value;
+        },
+
+        getcontentEdit: function () {
+            return contentEdit;
+        },
+        setcontentEdit: function(value) {
+            contentEdit = value;
+        }
+    };
+});
 
 
 //svg error soluation
