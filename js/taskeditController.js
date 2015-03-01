@@ -1,43 +1,40 @@
-todoApp.controller('taskEditCtrl', ['$scope', '$document', '$http', function ($scope, $document, $http) {
+todoApp.controller('taskEditCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http) {
 
 	// $http.get('./src/note.json').success(function(data) {
 	// 	$scope.taskData = data;
 	// });
-
-	$scope.taskData = [
-		{
-	    "iconUrl": 		"./img/icon/1.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl": 	"Food Package",
-	    "title": 		"ggg",
-		"content": 		"no shit gg Foam  Foam bowls."},
-	    {
-	    "iconUrl": 		"./img/icon/3.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl		":"Food Package",
-	    "title": 		"dota",
-		"content": 		"let me dota"},
-		{
-	    "iconUrl": 		"./img/icon/7.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrlas": 	"Food Package",
-	    "title": 		"fail",
-		"content": 		"failed fucked it"},
-	    {
-	    "iconUrl": 		"./img/icon/2.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl": 	"Food Package",
-	    "title": 		"meat",
-	    "content": 		"meet plaesesfdasdf sdfff"},
-	    {
-	    "iconUrl": 		"./img/icon/add.png",
-	    "iconClass": 	"addIcon",
-	    "detailUrl": 	"Food Package",
-	    "content": 		"find some one who play blazblue"}
-
-	];
+	$scope.taskData = sharedProperties.getTaskData();
 
 	
-}]);
+	var keyEdit = $location.path()[$location.path().length-1];
+
+	var taskEdit;
+
+	angular.forEach($scope.taskData, function(value, key) {
+      	if (keyEdit == key) {
+      		taskEdit = value;	
+      	}
+    });
+
+
+	$scope.title = taskEdit.title;
+    $scope.detail = taskEdit.content;
+      
+    $scope.submit = function() {
+       	if ($scope.title) {
+         	taskEdit.title = this.title;
+         	taskEdit.content = this.detail;
+         	angular.forEach($scope.taskData, function(value, key) {
+		      	if (keyEdit == key) {
+		      		value = taskEdit;	
+		      	}
+	      	
+    		});
+    		sharedProperties.setTaskData($scope.taskData);
+    		$location.path('#/home');
+       	}
+    };
+	
+});
 
 

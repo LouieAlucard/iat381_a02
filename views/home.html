@@ -16,6 +16,9 @@
     <tspan ng-x="{{centerX}}" ng-y="{{centerYAlt(20)}}">0 / {{taskNumber}}</tspan>
   </text>
   
+
+
+
   <g class="detail-group">
     <rect class="detail" x="0" ng-y="{{taskDetailY}}" ng-width="{{cWidth}}" ng-height="{{taskDetailH}}" style="fill:rgb(0,0,0)"/>
 
@@ -24,7 +27,7 @@
       <tspan class="detail-content" ng-x="{{textDetailX}}" ng-y="{{textDetailYAlt(2)}}">total gay</tspan>
     </text>
 
-    <a xlink:href="#/edit" target="_top" ng-click="initEdit()">
+    <a id="editButton" xlink:href="#/edit" target="_top">
       <image 
             xlink:href="./img/icon/edit.png"
             ng-x="{{iconDetailX}}" 
@@ -34,24 +37,53 @@
     </a>
   </g>
 
-  <rect class="feature" x="0" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}" style="fill:rgb(0,0,255)"/>
-
-  <rect class="feature" ng-x="{{dispalyX}}" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}" style="fill:rgb(0,0,255)"/>
-
-  <rect class="feature" x="0" ng-y="{{dispalyY}}" ng-width="{{cWidth}}" ng-height="{{displayH}}" style="fill:rgb(0,0,255)"/>
 
 
 
-	<g ng-repeat="(key, value) in taskData">
-  			<image 
-          class="{{value.iconClass}}"
-          xlink:href="{{value.iconUrl}}"
-          ng-x="{{taskCoords[key][0]}}" 
-          ng-y="{{taskCoords[key][1]}}"  
-          ng-width="{{taskSize}}" 
-          ng-height="{{taskSize}}" 
-          alt="{{value.title}} /n {{value.content}}">
+  <g class="feature-delete">
+    <rect x="0" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}" style="fill:rgb(0,0,255)"/>
+    <image 
+      xlink:href="./img/icon/sideTrash.png"
+      ng-x="{{sideIconX}}" 
+      ng-y="{{sideIconY}}"  
+      ng-width="{{sideIconSize}}" 
+      ng-height="{{sideIconSize}}"/>
   </g>
+
+  <g class="feature-delete">
+    <rect ng-x="{{dispalyX}}" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}" style="fill:rgb(0,0,255)"/>
+    <image 
+      xlink:href="./img/icon/sideTrash.png"
+      ng-x="{{sideIconXr}}" 
+      ng-y="{{sideIconY}}"  
+      ng-width="{{sideIconSize}}" 
+      ng-height="{{sideIconSize}}"/>
+  </g>
+
+  <g class="feature-detail">
+    <rect x="0" ng-y="{{dispalyY}}" ng-width="{{cWidth}}" ng-height="{{displayH}}" style="fill:rgb(0,0,255)"/>
+    <image 
+      xlink:href="./img/icon/sideRead.png"
+      ng-x="{{botIconX}}" 
+      ng-y="{{botIconY}}"  
+      ng-width="{{sideIconSize}}" 
+      ng-height="{{sideIconSize}}"/>
+  </g>
+
+
+
+
+	<image 
+    ng-repeat="(key, value) in taskData"
+    class="{{value.iconClass}}"
+    ng-xlink-href="{{value.iconUrl}}"
+    xlink:href=""
+    ng-x="{{taskCoords[key][0]}}" 
+    ng-y="{{taskCoords[key][1]}}"  
+    ng-width="{{taskSize}}" 
+    ng-height="{{taskSize}}" 
+    alt="{{value.title}}/n{{value.content}}/n{{key}}"/>
+
 
   <a xlink:href="#/new" target="_top">
     <image 
@@ -60,7 +92,7 @@
           ng-x="{{taskCoordsLast[0]}}" 
           ng-y="{{taskCoordsLast[1]}}"  
           ng-width="{{taskSize}}" 
-          ng-height="{{taskSize}}">
+          ng-height="{{taskSize}}"/>
   </a>
 
 

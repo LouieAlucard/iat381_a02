@@ -1,37 +1,12 @@
-todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($scope, $document, $http) {
+todoApp.controller('taskListCtrl',  function ($scope, $document, $routeParams, sharedProperties, $http) {
 
 	// $http.get('./src/note.json').success(function(data) {
 	// 	$scope.taskData = data;
 	// });
 
-	$scope.taskData = [
-		{
-	    "iconUrl": 		"./img/icon/1.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl": 	"Food Package",
-	    "title": 		"ggg",
-		"content": 		"no shit gg Foam  Foam bowls."},
-	    {
-	    "iconUrl": 		"./img/icon/3.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl		":"Food Package",
-	    "title": 		"dota",
-		"content": 		"let me dota"},
-		{
-	    "iconUrl": 		"./img/icon/7.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrlas": 	"Food Package",
-	    "title": 		"fail",
-		"content": 		"failed fucked it"},
-	    {
-	    "iconUrl": 		"./img/icon/2.png",
-	    "iconClass": 	"taskIcon",
-	    "detailUrl": 	"Food Package",
-	    "title": 		"meat",
-	    "content": 		"meet plaesesfdasdf sdfff"}
 
-	];
-
+	
+	$scope.taskData = sharedProperties.getTaskData();
 	$scope.taskNumber = $scope.taskData.length;
 
 
@@ -51,7 +26,7 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 	}
 	
 
-	$scope.taskDisR = $scope.centerR * 1.5;
+	$scope.taskDisR = $scope.centerR * 1.4;
 	$scope.taskSize = $scope.centerR * 0.5;
 	var angle = 0;
     var taskCoords = [];
@@ -67,11 +42,20 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 	$scope.taskCoordsLast = [taskCoords[$scope.taskNumber][0], taskCoords[$scope.taskNumber][1]];
 
 
-	//feature pop up position
-	$scope.displayW = $scope.cWidth * 0.05;
+	//side and bottem feature
+	$scope.displayW = $scope.cWidth * 0.07;
 	$scope.displayH = $scope.cHeight * 0.05;
 	$scope.dispalyY = $scope.cHeight - $scope.displayH;
 	$scope.dispalyX = $scope.cWidth - $scope.displayW;
+	
+	$scope.sideIconSize = $scope.displayW * 0.9;
+	$scope.sideIconX = $scope.sideIconSize * 0.1;
+	$scope.sideIconXr = $scope.cWidth - $scope.sideIconSize;
+	$scope.sideIconY = $scope.cHeight / 2;
+	$scope.botIconX = $scope.cWidth  / 2 - $scope.sideIconSize/2;
+	$scope.botIconY = $scope.cHeight - $scope.sideIconSize;
+
+
 
 	
 	$scope.taskDetailY = $scope.cHeight * 0.75;
@@ -91,12 +75,7 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 	$scope.iconDetailSize = $scope.cWidth * 0.12;
 
 
-	
-	$scope.initEdit = function() {
-		sharedProperties.seticonEdit();
-		sharedProperties.settitleEdit();
-		sharedProperties.setcontentEdit();
-	}
+
 
 
 
@@ -105,6 +84,6 @@ todoApp.controller('taskListCtrl', ['$scope', '$document', '$http', function ($s
 	
 
 
-}]);
+});
 
 

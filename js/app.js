@@ -9,13 +9,13 @@ todoApp.config(['$routeProvider',
 				templateUrl: 'views/home.html',
 				controller: 'taskListCtrl'
 			}).
-            when('/edit', {
+            when('/edit/:index', {
                 templateUrl: 'views/edit.html',
                 controller: 'taskEditCtrl'
             }).
             when('/new', {
                 templateUrl: 'views/new.html',
-                controller: 'taskEditCtrl'
+                controller: 'taskNewCtrl'
             }).
 			otherwise({
 				redirectTo: '/main'
@@ -25,31 +25,51 @@ todoApp.config(['$routeProvider',
 
 
 todoApp.service('sharedProperties', function () {
-    var iconEdit;
-    var titleEdit;
-    var contentEdit;
+    var data = [
+        {
+        "iconUrl":      "./img/icon/1.png",
+        "iconClass":    "taskIcon",
+        "detailUrl":    "Food Package",
+        "title":        "ggg",
+        "content":      "no shit gg Foam  Foam bowls."},
+        {
+        "iconUrl":      "./img/icon/3.png",
+        "iconClass":    "taskIcon",
+        "detailUrl      ":"Food Package",
+        "title":        "dota",
+        "content":      "let me dota"},
+        {
+        "iconUrl":      "./img/icon/7.png",
+        "iconClass":    "taskIcon",
+        "detailUrlas":  "Food Package",
+        "title":        "fail",
+        "content":      "failed fucked it"},
+        {
+        "iconUrl":      "./img/icon/2.png",
+        "iconClass":    "taskIcon",
+        "detailUrl":    "Food Package",
+        "title":        "meat",
+        "content":      "meet plaesesfdasdf sdfff"}
+    ];
+
+    var dataChanged = false;
+
+    var setTaskData = function(newdata) {
+        data = newdata;
+     }
+
+    var addTaskData = function(newdata) {
+        data.push(newdata);
+    }
+
+    var getTaskData = function(){
+        return data;
+    }
 
     return {
-        geticonEdit: function () {
-            return iconEdit;
-        },
-        seticonEdit: function(value) {
-            iconEdit = value;
-        },
-
-        gettitleEdit: function () {
-            return titleEdit;
-        },
-        settitleEdit: function(value) {
-            titleEdit = value;
-        },
-
-        getcontentEdit: function () {
-            return contentEdit;
-        },
-        setcontentEdit: function(value) {
-            contentEdit = value;
-        }
+        setTaskData: setTaskData,
+        getTaskData: getTaskData,
+        addTaskData: addTaskData
     };
 });
 
@@ -103,6 +123,20 @@ todoApp.directive('ngX', function() {
                 elem.attr('r', r);
             });
         };
-    });
+    })
+    .directive('ngXlinkHref', function () {
+        return {
+            priority: 99,
+            restrict: 'A',
+            link: function (scope, element, attr) {
+                var attrName = 'xlink:href';
+                attr.$observe('ngXlinkHref', function (value) {
+                if (!value)
+                  return;
 
+                attr.$set(attrName, value);
+                });
+            }
+        };
+    });
 

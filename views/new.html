@@ -1,8 +1,22 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  	<div class="container">
-   		...
-  	</div>
+	<div class="container">
+		...
+	</div>
 </nav>
 
+<form ng-submit="submit()">
+	<img ng-repeat="(key, value) in iconData" class="iconPiker" src="./img/icon/{{value}}a.png">
+
+
+	Title:
+	<input type="text" ng-model="title" name="title" />
+
+	Detail:
+	<input type="text" ng-model="detail" name="detail" />
+	<button type="submit">
+	<img src="./img/icon/15a.png">
+	</button>
+
+</form>
 
 
