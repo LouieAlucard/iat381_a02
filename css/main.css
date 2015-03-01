@@ -41,6 +41,16 @@ svg.task-list {
     font-size: 16pt;
 }
 
+
+div.iconSelected {
+    display: block;
+    text-align: center;
+}
+
+img.iconSelected {
+    width: 18%;
+}
+
 img.iconPiker {
     width: 18%;
     height: auto;

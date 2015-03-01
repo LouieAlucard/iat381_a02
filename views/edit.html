@@ -5,14 +5,21 @@
 </nav>
 
 <form ng-submit="submit()">
-  Title:
+  <div class="iconSelected">
+    <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >
+  </div>
 
+
+  <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}a.png" ng-click="iconSelect(value)" >
+
+
+  Title:
   <input type="text" ng-model="title" name="title" />
 
   Detail:
   <input type="text" ng-model="detail" name="detail" />
   <button type="submit">
-  <img src="./img/icon/15a.png" >
+  <img src="./img/icon/15a.png">
   </button>
 
 </form>

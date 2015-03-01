@@ -27,25 +27,25 @@ todoApp.config(['$routeProvider',
 todoApp.service('sharedProperties', function () {
     var data = [
         {
-        "iconUrl":      "./img/icon/1.png",
+        "iconUrl":      "1",
         "iconClass":    "taskIcon",
         "detailUrl":    "Food Package",
         "title":        "ggg",
         "content":      "no shit gg Foam  Foam bowls."},
         {
-        "iconUrl":      "./img/icon/3.png",
+        "iconUrl":      "3",
         "iconClass":    "taskIcon",
         "detailUrl      ":"Food Package",
         "title":        "dota",
         "content":      "let me dota"},
         {
-        "iconUrl":      "./img/icon/7.png",
+        "iconUrl":      "7",
         "iconClass":    "taskIcon",
         "detailUrlas":  "Food Package",
         "title":        "fail",
         "content":      "failed fucked it"},
         {
-        "iconUrl":      "./img/icon/2.png",
+        "iconUrl":      "2",
         "iconClass":    "taskIcon",
         "detailUrl":    "Food Package",
         "title":        "meat",

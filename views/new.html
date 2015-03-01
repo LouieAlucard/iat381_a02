@@ -5,7 +5,12 @@
 </nav>
 
 <form ng-submit="submit()">
-	<img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}a.png">
+	<div class="iconSelected">
+    <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >
+  </div>
+
+
+	<img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}a.png" ng-click="iconSelect(value)" >
 
 
 	Title:
