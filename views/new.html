@@ -4,24 +4,55 @@
 	</div>
 </nav>
 
-<form ng-submit="submit()">
-	<div class="iconSelected">
-    <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >
-  </div>
+<div class="new-task animated fadeInUp">
+ 
+    <a href="#home">
+        <img class="cancel" src="../img/icon/cancel.png" alt="cancel"></img>
+    </a>
+    <!--<img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >-->
 
+<!------------------------ FORM ----------------------->
 
-	<img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}a.png" ng-click="iconSelect(value)" >
+    <form ng-submit="submit()">
+        <fieldset class="register-group">
+            
+            <label>
+                <input class="circle" type="button" value="icon" required>
+                    <div class="iconSelected">
+                        <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}.png" ng-click="iconSelect(value)" >
+                    </div>
+            </label>
+                
+            <label>
+                Title:
+                <input type="text" ng-model="title" required>
+            </label>
 
+            <label>
+                Detail:
+                <textarea type="text" ng-model="detail" ></textarea>
+            </label>
 
-	Title:
-	<input type="text" ng-model="title" name="title" />
-
-	Detail:
-	<input type="text" ng-model="detail" name="detail" />
-	<button type="submit">
-	<img src="./img/icon/15a.png">
-	</button>
-
-</form>
+            <label>
+                Date:
+                <input type="date" placeholder="Today" name="icon">
+            </label>
+            
+            <label>
+                Alarm:
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </label>
+            
+        </fieldset>
+        
+        <input class="save" type="submit" ng-model="save" value="">
+    </form>
+</div>
 
 

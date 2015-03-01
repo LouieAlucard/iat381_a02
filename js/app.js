@@ -30,26 +30,26 @@ todoApp.service('sharedProperties', function () {
         "iconUrl":      "1",
         "iconClass":    "taskIcon",
         "detailUrl":    "Food Package",
-        "title":        "ggg",
-        "content":      "no shit gg Foam  Foam bowls."},
+        "title":        "Assignment 02",
+        "content":      "- due Monday!"},
         {
         "iconUrl":      "3",
         "iconClass":    "taskIcon",
         "detailUrl      ":"Food Package",
-        "title":        "dota",
-        "content":      "let me dota"},
+        "title":        "Mailing",
+        "content":      "- Post office closes @ 5"},
         {
         "iconUrl":      "7",
         "iconClass":    "taskIcon",
         "detailUrlas":  "Food Package",
-        "title":        "fail",
-        "content":      "failed fucked it"},
+        "title":        "Grocery",
+        "content":      "- tomato, carrot, milk, egg"},
         {
         "iconUrl":      "2",
         "iconClass":    "taskIcon",
         "detailUrl":    "Food Package",
-        "title":        "meat",
-        "content":      "meet plaesesfdasdf sdfff"}
+        "title":        "Tax Filing",
+        "content":      "- $ 205"}
     ];
 
     var dataChanged = false;
