@@ -1,6 +1,5 @@
-var taskStartX;
-var taskStartY;
-var taskMove = false;
+var taskTotal;
+var taskComplete = 0;
 
 
 
@@ -90,6 +89,10 @@ interact('.taskBin').dropzone({
   ondrop: function (event) {
     var draggableElement = event.relatedTarget;
     draggableElement.remove();
+    var str = document.getElementById("taskNum").innerHTML;
+    var n1 = parseInt(str[0]) + 1;
+    var n2 = str[str.length-1];
+    document.getElementById("taskNum").innerHTML = n1 + " / " + n2;
   },
   // when drop
   ondropdeactivate: function (event) {
@@ -171,6 +174,11 @@ interact('.feature-delete').dropzone({
   ondrop: function (event) {
     var draggableElement = event.relatedTarget;
     draggableElement.remove();
+
+    var str = document.getElementById("taskNum").innerHTML;
+    var n1 = str[0];
+    var n2 = parseInt(str[str.length-1]) - 1;
+    document.getElementById("taskNum").innerHTML = n1 + " / " + n2;
   },
 
   ondropdeactivate: function (event) {
