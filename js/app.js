@@ -37,7 +37,7 @@ todoApp.service('sharedProperties', function () {
         "iconClass":    "taskIcon",
         "detailUrl      ":"Food Package",
         "title":        "Mailing",
-        "content":      "- Post office closes @ 5"},
+        "content":      "- Post office closes at 5"},
         {
         "iconUrl":      "7",
         "iconClass":    "taskIcon",

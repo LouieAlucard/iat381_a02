@@ -1,6 +1,7 @@
 body { 
 /*    padding-top: 50px; */
     height: 100%;
+    width: 100%;
 }
 
 .navbar-fixed-top {
@@ -77,6 +78,7 @@ svg.task-list {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#487690', endColorstr='#00bcb1', GradientType=0 );
     
     -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
 }
 
 [class^=feature] {
@@ -126,7 +128,6 @@ div.new-task {
 
 form {
     float: left;
-/*    padding: 5% 5% 0%;*/
 }
 
 input, textarea {
@@ -162,21 +163,6 @@ label {
     width: 100%;
 }
 
-/*
-input.circle {
-    width: 40%;
-	height:0;
-	padding-bottom: 40%;
-    text-align: center;
-    border-radius: 50%;
-    overflow:hidden;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-}
-*/
-
-
 input:focus, textarea:focus {
     outline: none;
     border: 2px solid white; 
@@ -191,6 +177,7 @@ img.cancel {
     background-color: transparent;
     
     -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
 }
 
 input.save {
@@ -204,6 +191,7 @@ input.save {
     margin-right: 5%;
     
     -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
 }
 
 .iconSet {

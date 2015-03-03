@@ -30,7 +30,7 @@ todoApp.controller('taskListCtrl',  function ($scope, $document, $routeParams, s
 
 
 	$scope.centerX = $scope.cWidth / 2;
-	$scope.centerY = $scope.cHeight * 0.4;
+	$scope.centerY = $scope.cHeight * 0.5;
 	$scope.centerR = $scope.cWidth * 0.23;
 	$scope.centerYAlt = function(change) {
 		var y = $scope.centerY;
