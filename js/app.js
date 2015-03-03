@@ -31,7 +31,7 @@ todoApp.service('sharedProperties', function () {
         "iconClass":    "taskIcon",
         "detailUrl":    "Food Package",
         "title":        "Assignment 02",
-        "content":      "- due Monday!"},
+        "content":      "- due on Monday!"},
         {
         "iconUrl":      "3",
         "iconClass":    "taskIcon",
