@@ -1,0 +1,62 @@
+<div class="new-task animated fadeInUp">
+ 
+    <a href="#home">
+        <img class="cancel animated rotateIn" src="../img/icon/cancel.png" alt="cancel"></img>
+    </a>
+<!--
+
+  <div class="iconSelected">
+    <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >
+  </div>
+-->
+
+<!------------------------ FORM ----------------------->
+
+    <form ng-submit="submit()">
+        <fieldset class="register-group">
+            
+
+            <div class="iconSet">
+                <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}.png" >
+                    <div class="iconSelected">
+                        <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}.png" ng-click="iconSelect(value)" >
+                    </div>
+            </div>
+                
+            <label>
+                Title:
+                <input type="text" ng-model="title" name="title">
+            </label>
+
+            <label>
+                Detail:
+                <textarea type="text" ng-model="detail" name="detail" ></textarea>
+            </label>
+
+<!--
+            <label>
+                Date:
+                <input type="date" placeholder="Today" name="icon">
+            </label>
+-->
+            
+<!--
+            <label>
+                Alarm:
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </label>
+-->
+            
+        </fieldset>
+        
+        <input class="save animated rotateIn" type="submit" ng-model="save" value="">
+    </form>
+</div>
+
+

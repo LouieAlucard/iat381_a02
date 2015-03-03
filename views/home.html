@@ -1,0 +1,106 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  	<div id="container"> 
+        <div class="center">
+            <h3>Today</h3>
+        </div>
+  	</div>
+</nav>
+
+<!--
+<div class="clock">
+            <input class="knob hour" data-min="0" data-max="24" data-bgColor="#999" data-fgColor="white" data-displayInput=false data-thickness=".03"> 
+        </div>
+-->
+
+<svg class="task-list" ng-width="{{cWidth}}" ng-height="{{svgHeight}}">
+<!--------------------------- CIRCLE CENTER --------------------------->
+
+
+	<circle class="taskBin animated fadeIn" ng-cx="{{centerX}}" ng-cy="{{centerY}}" ng-r="{{centerR}}" stroke="white" stroke-width="1" fill="transparent"/>
+
+    <text ng-x="{{centerX}}" ng-y="{{centerY}}" text-anchor="middle" fill="white">
+        <tspan ng-x="{{centerX}}" ng-y="{{centerY}}">Completion</tspan>
+        <tspan id="taskNum" ng-x="{{centerX}}" ng-y="{{centerYAlt(20)}}">{{taskCompleted}} / {{taskNumberDisplay}}</tspan>
+    </text>
+  
+<!--------------------------- TASK DETAIL --------------------------->
+    
+    <g class="detail-group animated fadeInUp">
+        <rect class="detail" x="0" ng-y="{{taskDetailY}}" ng-width="{{cWidth}}" ng-height="{{taskDetailH}}"/>
+            <text text-anchor="left" fill="white"> 
+              <tspan class="detail-title" ng-x="{{textDetailX}}" ng-y="{{textDetailY}}">gay ass</tspan>
+              <tspan class="detail-content" ng-x="{{textDetailX}}" ng-y="{{textDetailYAlt(2)}}">total gay</tspan>
+            </text>
+
+        <a id="editButton" xlink:href="#/edit" target="_top">
+            <image 
+                xlink:href="./img/icon/edit.png"
+                ng-x="{{iconDetailX}}" 
+                ng-y="{{iconDetailY}}"  
+                ng-width="{{iconDetailSize}}" 
+                ng-height="{{iconDetailSize}}">
+        </a>
+    </g>
+
+<!--------------------------- SIDE BAR - delect --------------------------->
+
+  <g class="feature-delete">
+    <rect class="delect" x="0" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}"/>
+        <image 
+          xlink:href="./img/icon/sideTrash.png"
+          ng-x="{{sideIconX}}" 
+          ng-y="{{sideIconY}}"  
+          ng-width="{{sideIconSize}}" 
+          ng-height="{{sideIconSize}}"/>
+  </g>
+
+  <g class="feature-delete">
+    <rect class="delect" ng-x="{{dispalyX}}" y="0" ng-width="{{displayW}}" ng-height="{{cHeight}}"/>
+        <image 
+          xlink:href="./img/icon/sideTrash.png"
+          ng-x="{{sideIconXr}}" 
+          ng-y="{{sideIconY}}"  
+          ng-width="{{sideIconSize}}" 
+          ng-height="{{sideIconSize}}"/>
+  </g>
+
+  <g class="feature-detail">
+    <rect class="detail" x="0" ng-y="{{dispalyY}}" ng-width="{{cWidth}}" ng-height="{{displayH}}"/>
+        <image 
+          xlink:href="./img/icon/sideRead.png"
+          ng-x="{{botIconX}}" 
+          ng-y="{{botIconY}}"  
+          ng-width="{{sideIconSize}}" 
+          ng-height="{{sideIconSize}}"/>
+  </g>
+
+
+<!--------------------------- CIRCLE IMAGE --------------------------->
+
+	<image  class="{{value.iconClass}} animated fadeIn"
+        id = "{{key}}"
+        ng-repeat="(key, value) in taskData"
+        ng-xlink-href="./img/icon/{{value.iconUrl}}.png"
+        xlink:href=""
+        ng-x="{{taskCoords[key][0]}}" 
+        ng-y="{{taskCoords[key][1]}}"  
+        ng-width="{{taskSize}}" 
+        ng-height="{{taskSize}}" 
+        alt="{{value.title}}/n{{value.content}}/n{{key}}"/>
+
+
+    <a xlink:href="#/new" target="_top">
+        <image class="animated rotateIn"
+          xlink:href="./img/icon/add.png"
+          ng-x="{{taskCoordsLast[0]}}" 
+          ng-y="{{taskCoordsLast[1]}}"  
+          ng-width="{{taskSize}}" x
+          ng-height="{{taskSize}}"/>
+    </a>
+        
+</svg>
+
+
+
+
+
