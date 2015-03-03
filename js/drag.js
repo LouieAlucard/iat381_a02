@@ -1,5 +1,28 @@
-var taskTotal;
-var taskComplete = 0;
+window.taskCompleted = 0;
+window.taskRemoved = {prop: "200"};
+var taskRemoveWatch = (function() {
+    var watches = {};
+
+    return {
+        watch: function(callback) {
+            var id = Math.random().toString();
+            watches[id] = callback;
+
+            // Return a function that removes the listener
+            return function() {
+                watches[id] = null;
+                delete watches[id];
+            }
+        },
+        trigger: function() {
+            for (var k in watches) {
+                watches[k](window.taskRemoved);
+            }
+        }
+    }
+})();
+
+
 
 
 
@@ -89,6 +112,7 @@ interact('.taskBin').dropzone({
   ondrop: function (event) {
     var draggableElement = event.relatedTarget;
     draggableElement.remove();
+    
     var str = document.getElementById("taskNum").innerHTML;
     var n1 = parseInt(str[0]) + 1;
     var n2 = str[str.length-1];
@@ -174,6 +198,11 @@ interact('.feature-delete').dropzone({
   ondrop: function (event) {
     var draggableElement = event.relatedTarget;
     draggableElement.remove();
+
+    setTimeout(function() {
+      window.taskRemoved.prop = draggableElement.id;
+      taskRemoveWatch.trigger();
+    }, 500);
 
     var str = document.getElementById("taskNum").innerHTML;
     var n1 = str[0];

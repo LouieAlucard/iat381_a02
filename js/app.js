@@ -65,11 +65,16 @@ todoApp.service('sharedProperties', function () {
     var getTaskData = function(){
         return data;
     }
+    
+    var removeTaskData = function(num){
+        data.splice (num, 1);
+    }
 
     return {
         setTaskData: setTaskData,
         getTaskData: getTaskData,
-        addTaskData: addTaskData
+        addTaskData: addTaskData,
+        removeTaskData: removeTaskData
     };
 });
 

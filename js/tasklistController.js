@@ -1,4 +1,14 @@
-todoApp.controller('taskListCtrl',  function ($scope, $document, $routeParams, sharedProperties, $http) {
+todoApp.controller('taskListCtrl',  function ($scope, $document, $routeParams, sharedProperties, $window, $route, $http) {
+
+	var unbind = taskRemoveWatch.watch(function(newVal) {
+        sharedProperties.removeTaskData(newVal);
+        var d =  sharedProperties.getTaskData();
+        console.log(d);
+        $route.reload();
+    });
+
+    // Unbind the listener when the scope is destroyed
+    $scope.$on('$destroy', unbind);
 
 	// $http.get('./src/note.json').success(function(data) {
 	// 	$scope.taskData = data;
@@ -7,8 +17,8 @@ todoApp.controller('taskListCtrl',  function ($scope, $document, $routeParams, s
 
 	
 	$scope.taskData = sharedProperties.getTaskData();
-	$scope.taskNumber = $scope.taskData.length;
-
+	$scope.taskCompleted = $window.taskCompleted;
+	$scope.taskNumber = $scope.taskData.length + $window.taskCompleted;
 
 	
 	var navH = angular.element(document.getElementsByClassName('navbar-fixed-top')[0].clientHeight);

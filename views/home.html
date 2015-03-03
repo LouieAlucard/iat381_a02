@@ -1,23 +1,26 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  	<div id="container">
-        <a href="/#"><h6>< March</h6></a>
-        <h3>Today</h3>
-        <br>
-   		<p>03-03-2015</p>
-        <a href="/#"><h6>Tomrrow ></h6></a>
+  	<div id="container"> 
+        <div class="center">
+            <h3>Today</h3>
+        </div>
   	</div>
 </nav>
 
+<!--
+<div class="clock">
+            <input class="knob hour" data-min="0" data-max="24" data-bgColor="#999" data-fgColor="white" data-displayInput=false data-thickness=".03"> 
+        </div>
+-->
+
 <svg class="task-list" ng-width="{{cWidth}}" ng-height="{{svgHeight}}">
-    
 <!--------------------------- CIRCLE CENTER --------------------------->
 
 
-	<circle class="taskBin" ng-cx="{{centerX}}" ng-cy="{{centerY}}" ng-r="{{centerR}}" stroke="black" stroke-width="0" fill="transparent"/>
+	<circle class="taskBin animated fadeIn" ng-cx="{{centerX}}" ng-cy="{{centerY}}" ng-r="{{centerR}}" stroke="white" stroke-width="1" fill="transparent"/>
 
     <text ng-x="{{centerX}}" ng-y="{{centerY}}" text-anchor="middle" fill="white">
         <tspan ng-x="{{centerX}}" ng-y="{{centerY}}">Completion</tspan>
-        <tspan id="taskNum" ng-x="{{centerX}}" ng-y="{{centerYAlt(20)}}">0 / {{taskNumber}}</tspan>
+        <tspan id="taskNum" ng-x="{{centerX}}" ng-y="{{centerYAlt(20)}}">{{taskCompleted}} / {{taskNumberDisplay}}</tspan>
     </text>
   
 <!--------------------------- TASK DETAIL --------------------------->
@@ -74,9 +77,9 @@
 
 <!--------------------------- CIRCLE IMAGE --------------------------->
 
-	<image 
+	<image  class="{{value.iconClass}} animated fadeIn"
+        id = "{{key}}"
         ng-repeat="(key, value) in taskData"
-        class="{{value.iconClass}}"
         ng-xlink-href="./img/icon/{{value.iconUrl}}.png"
         xlink:href=""
         ng-x="{{taskCoords[key][0]}}" 
@@ -87,7 +90,7 @@
 
 
     <a xlink:href="#/new" target="_top">
-        <image class=""
+        <image class="animated rotateIn"
           xlink:href="./img/icon/add.png"
           ng-x="{{taskCoordsLast[0]}}" 
           ng-y="{{taskCoordsLast[1]}}"  

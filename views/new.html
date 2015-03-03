@@ -1,27 +1,22 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		...
-	</div>
-</nav>
-
 <div class="new-task animated fadeInUp">
  
     <a href="#home">
-        <img class="cancel" src="../img/icon/cancel.png" alt="cancel"></img>
+        <img class="cancel animated rotateIn" src="../img/icon/cancel.png" alt="cancel"></img>
     </a>
-    <!--<img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >-->
+    
 
 <!------------------------ FORM ----------------------->
 
     <form ng-submit="submit()">
         <fieldset class="register-group">
-            
-            <label>
-                <input class="circle" type="button" value="icon" required>
+ <!--            <label>-->     
+<!-- <input class="circle" type="button" value="icon" required>-->
+           <div class="iconSet">
+                <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}.png" >
                     <div class="iconSelected">
                         <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}.png" ng-click="iconSelect(value)" >
                     </div>
-            </label>
+            </div>
                 
             <label>
                 Title:
@@ -33,11 +28,14 @@
                 <textarea type="text" ng-model="detail" ></textarea>
             </label>
 
+<!--
             <label>
                 Date:
                 <input type="date" placeholder="Today" name="icon">
             </label>
+-->
             
+<!--
             <label>
                 Alarm:
                 <div class="onoffswitch">
@@ -48,10 +46,11 @@
                     </label>
                 </div>
             </label>
+-->
             
         </fieldset>
         
-        <input class="save" type="submit" ng-model="save" value="">
+        <input class="save animated rotateIn" type="submit" ng-model="save" value="">
     </form>
 </div>
 
