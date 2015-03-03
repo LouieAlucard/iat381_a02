@@ -91,6 +91,7 @@ interact('.taskBin').dropzone({
     var dropzoneElement = event.target;
       
     dropzoneElement.setAttribute('stroke', 'rgba(0, 0, 0, 0.5)');
+    dropzoneElement.setAttribute('stroke-width', '3');
     // add active dropzone feedback
     //event.target.style.fill = "green";
   },
@@ -132,6 +133,7 @@ interact('.taskBin').dropzone({
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
     event.target.setAttribute('stroke', 'white');
+    event.target.setAttribute('stroke-width', '1');
   }
 });
 

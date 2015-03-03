@@ -3,34 +3,27 @@
     <a href="#home">
         <img class="cancel animated rotateIn" src="./img/icon/cancel.png" alt="cancel"></img>
     </a>
-<!--
-
-  <div class="iconSelected">
-    <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}a.png" >
-  </div>
--->
+    
 
 <!------------------------ FORM ----------------------->
 
     <form ng-submit="submit()">
         <fieldset class="register-group">
-            
-
-            <div class="iconSet">
+ <!--            <label>-->     
+<!-- <input class="circle" type="button" value="icon" required>-->
                 <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}.png" >
-                    <div class="iconSelected">
+                    <div class="iconSet">
                         <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}.png" ng-click="iconSelect(value)" >
                     </div>
-            </div>
                 
             <label>
-                Title:
-                <input type="text" ng-model="title" name="title">
+                <h5>Title:</h5>
+                <input type="text" ng-model="title" required>
             </label>
 
             <label>
-                Detail:
-                <textarea type="text" ng-model="detail" name="detail" ></textarea>
+                <h5>Detail:</h5>
+                <textarea type="text" ng-model="detail" ></textarea>
             </label>
 
 <!--

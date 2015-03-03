@@ -11,20 +11,18 @@
         <fieldset class="register-group">
  <!--            <label>-->     
 <!-- <input class="circle" type="button" value="icon" required>-->
-           <div class="iconSet">
                 <img class="iconSelected" ng-src="./img/icon/{{iconSelected}}.png" >
-                    <div class="iconSelected">
+                    <div class="iconSet">
                         <img ng-repeat="(key, value) in iconData" class="iconPiker" ng-src="./img/icon/{{value}}.png" ng-click="iconSelect(value)" >
                     </div>
-            </div>
                 
             <label>
-                Title:
+                <h5>Title:</h5>
                 <input type="text" ng-model="title" required>
             </label>
 
             <label>
-                Detail:
+                <h5>Detail:</h5>
                 <textarea type="text" ng-model="detail" ></textarea>
             </label>
 
