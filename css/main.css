@@ -108,9 +108,9 @@ rect {
 /**************************** NEW TASK PAGE ****************************/
 
 div.new-task {
-    position: fixed;
+/*    position: fixed;*/
     padding-top: -50px;
-    height: 700px;
+    height: 800px;
     background: rgba(35,188,152,1);
     background: -moz-linear-gradient(top, rgba(35,188,152,1) 0%, rgba(91,208,120,1) 41%, rgba(144,222,112,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(35,118,152,1)), color-stop(41%, rgba(91,208,120,1)), color-stop(100%, rgba(144,222,112,1)));
