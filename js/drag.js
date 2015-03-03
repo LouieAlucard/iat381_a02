@@ -227,3 +227,49 @@ interact('.feature-delete').dropzone({
     dropzoneElement.classList.remove('feature-droppable');
   }
 });
+
+
+interact('.detail-group').dropzone({
+  overlap: 0.90,
+
+
+  ondropactivate: function (event) {
+    
+  },
+
+  ondragenter: function (event) {
+  },
+
+  ondragleave: function (event) {
+  },
+
+  ondrop: function (event) {
+    var svgGroup = document.getElementsByClassName("detail-group")[0];
+    svgGroup.style.display = "block";
+    svgGroup.style.opacity = 1;
+    var title = document.getElementsByClassName("detail-title")[0];
+    title.innerHTML = "";
+    var content = document.getElementsByClassName("detail-content")[0];
+    content.innerHTML = "";
+    
+    
+
+    var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
+
+    var text = draggableElement.getAttribute("alt");
+    var text = text.split("/n");
+
+    title.innerHTML = text[0];
+    content.innerHTML = text[1];
+
+
+    var url = "#/edit/" + text[2];
+    var editBtn = document.getElementById("editButton");
+    editBtn.setAttribute('xlink:href', url);
+   
+  },
+
+  ondropdeactivate: function (event) {
+  }
+});
